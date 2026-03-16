@@ -4,6 +4,7 @@ import Hero from "./components/hero/Hero";
 import ProjectsSection from "./components/projects/ProjectsSection";
 import { trackSessionStart } from "./utils/analytics";
 import SkillsSection from "./components/skills/SkillsSection";
+import AboutSection from "./components/about/AboutSection";
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
       <Hero />
       <ProjectsSection />
       <SkillsSection />
+      <AboutSection />
     </div>
   );
 }
