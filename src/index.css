@@ -1,0 +1,116 @@
+/* ALL IMPORTS MUST BE AT THE TOP */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "./styles/line-clamp.css";
+@import "./styles/print.css";
+@import "./styles/learning-timeline.css";
+@import "./styles/skills.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-text-secondary antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    @apply font-semibold text-text-primary;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-primary font-semibold py-3 px-6 rounded-full 
+           hover:bg-accent-dark transition-all duration-300 
+           hover:shadow-lg hover:shadow-accent/30 inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-accent text-accent font-semibold py-3 px-6 rounded-full 
+           hover:bg-accent hover:text-primary transition-all duration-300 
+           inline-flex items-center gap-2;
+  }
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dark);
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* Loading animation for future use */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Better mobile navbar handling */
+@media (max-width: 768px) {
+  .navbar-spacer {
+    height: 60px; /* Smaller spacer for mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-spacer {
+    height: 80px; /* Larger spacer for desktop */
+  }
+}

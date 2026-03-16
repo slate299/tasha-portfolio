@@ -1,0 +1,71 @@
+/* src/styles/print.css */
+@media print {
+  /* Hide interactive elements */
+  .no-print,
+  nav,
+  .ProjectAnalytics,
+  button,
+  select,
+  input,
+  .btn-primary,
+  .btn-outline,
+  .filter-badge,
+  .pagination,
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  /* Print-friendly colors */
+  body,
+  .bg-primary,
+  .bg-secondary {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* Ensure text is readable */
+  .text-text-primary,
+  .text-text-secondary,
+  .text-accent {
+    color: black !important;
+  }
+
+  /* Show all projects in print */
+  .grid {
+    display: block !important;
+  }
+
+  .project-card,
+  .featured-project-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+  }
+
+  /* Ensure images print */
+  img {
+    max-width: 100% !important;
+    filter: grayscale(100%);
+  }
+
+  /* Add URLs after links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-style: italic;
+  }
+
+  /* Typography for print */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+}

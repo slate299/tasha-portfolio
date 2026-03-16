@@ -1,0 +1,111 @@
+/* src/styles/skills.css */
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for skills sections */
+.skills-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.skills-container::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+.skills-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dark);
+}
+
+/* Animation for skill cards on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-card-enter {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #c77dff, #9d4edd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Pulse animation for "Currently Learning" badges */
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.pulse-soft {
+  animation: softPulse 2s ease-in-out infinite;
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 0%,
+    var(--color-accent/10) 50%,
+    var(--color-secondary) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Print styles for skills section */
+@media print {
+  .skills-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .skill-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ccc !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  .progress-bar {
+    background: #eee !important;
+    border: 1px solid #999 !important;
+  }
+
+  .progress-fill {
+    background: #666 !important;
+  }
+}

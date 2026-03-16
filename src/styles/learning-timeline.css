@@ -1,0 +1,60 @@
+/* src/styles/learning-timeline.css */
+.learning-timeline {
+  position: relative;
+}
+
+.learning-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #c77dff,
+    #9d4edd,
+    transparent
+  );
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #c77dff;
+  box-shadow: 0 0 10px #c77dff;
+}
+
+.timeline-item.completed::before {
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.timeline-item.in-progress::before {
+  background: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
