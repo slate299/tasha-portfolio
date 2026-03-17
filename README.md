@@ -201,7 +201,7 @@ I'm always down for:
 
 <div align="center">
   
-**Made with 💜, ☕, and way too many late nights in Nairobi, Kenya**
+**Made with 💜, ☕**
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
 
