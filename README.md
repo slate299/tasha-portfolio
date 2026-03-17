@@ -171,11 +171,6 @@ vercel --prod
 - [ ] **Add more hackathon projects** – They're piling up!
 
 ## 🙏 **Shoutouts & Acknowledgments**
-
-- **Rose Tom** – My first client who trusted me with Baraka Bliss 🙌
-- **Julius Hinga** – My brother and frontend partner in crime at GRAF HET Developers
-- **PLP & eMobilis** – For teaching me that I actually _can_ do this
-- **The open source community** – Y'all are the real MVPs
 - **You** – For checking out my code. High five! ✋
 
 ## 📬 **Let's Connect!**
