@@ -4,16 +4,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Simple chunk splitting - this works!
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui': ['framer-motion'],
-        },
-      },
-    },
-    // Enable minification
+    // Remove manualChunks completely - let Vite handle it
     minify: 'terser',
     terserOptions: {
       compress: {
