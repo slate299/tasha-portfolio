@@ -10,7 +10,7 @@
 
   <h3>✨ Mathematics & CS Student | Full-Stack Developer | Curious Human ✨</h3>
   
-  [🌐 Live Demo](https://natashahinga-jk8luazdk-natasha-s-projects-f7bc532d.vercel.app) • 
+  [🌐 Live Demo](https://natashahinga.vercel.app) • 
   [🐙 GitHub](https://github.com/slate299) • 
   [💼 LinkedIn](https://linkedin.com/in/natasha-hinga-a2b268337) • 
   [🐦 Twitter](https://x.com/HingaNatas39546)
