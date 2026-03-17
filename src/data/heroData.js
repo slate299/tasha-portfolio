@@ -9,6 +9,16 @@ export const heroData = {
     "Mathematics & Computer Science student at JKUAT. I build full-stack web and mobile applications. I help businesses, startups, and entrepreneurs bring their ideas to life with interactive, reliable, and modern software solutions.",
   location: "Nairobi, Kenya",
 
+  // ===== ADD THIS PROFILE PICTURE SECTION =====
+  profilePicture: {
+    enabled: true,        // Set to true when you have a photo
+    url: "/images/profile.jpg",  // Path to your photo (add later)
+    alt: "Natasha Hinga - Full-Stack Developer",
+    placeholder: "NH",      // Fallback when no photo
+    size: "medium",         // 'small', 'medium', 'large'
+  },
+  // ============================================
+
   stats: [
     { number: "5+", label: "Projects Deployed", icon: "fa-solid fa-code" },
     { number: "5+", label: "Hackathons", icon: "fa-solid fa-trophy" },
@@ -46,5 +56,6 @@ export const heroData = {
     },
   ],
 
-  profilePlaceholder: "NH",
+  // You can keep or remove this line - the code will work with both
+  profilePlaceholder: "NH",  // Optional - can keep for backward compatibility
 };

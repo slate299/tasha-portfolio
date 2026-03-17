@@ -114,10 +114,9 @@ const Navbar = () => {
                 )}
               </motion.a>
             ))}
-
             {/* Resume Button */}
             <motion.a
-              href="/resume.pdf"
+              href="/Natasha_Hinga_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline text-sm py-2 px-4"
@@ -125,7 +124,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
             >
               <i className="fa-solid fa-file-pdf mr-2"></i>
-              Resume
+              TL;DR
             </motion.a>
           </div>
 
@@ -220,7 +219,7 @@ const Navbar = () => {
                 {/* Menu Footer */}
                 <div className="p-6 border-t border-border">
                   <motion.a
-                    href="/resume.pdf"
+                    href="/Natasha_Hinga_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-outline w-full text-center"
@@ -228,7 +227,7 @@ const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                   >
                     <i className="fa-solid fa-file-pdf mr-2"></i>
-                    Resume
+                    TL;DR
                   </motion.a>
 
                   {/* Social Links in Mobile Menu */}

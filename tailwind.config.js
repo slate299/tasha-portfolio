@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0A0A0F",
+        primary: "#0A0A0F",      // Change back to hardcoded
         secondary: "#13131F",
         accent: "#C77DFF",
         "accent-dark": "#9D4EDD",

@@ -12,12 +12,19 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
     "framer-motion": "^12.36.0",
+    "gray-matter": "^4.0.3",
     "react": "^19.2.4",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.1"
+    "react-hook-form": "^7.71.2",
+    "react-intersection-observer": "^10.0.3",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.13.1",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@eslint/js": "^9.39.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

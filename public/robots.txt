@@ -1,4 +1,7 @@
 # robots.txt
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /admin/
+
 Sitemap: https://yourdomain.com/sitemap.xml

@@ -9,6 +9,8 @@ import skillCategories, { getCategoryById } from "../../data/skillsCategories";
 import projectsData from "../../data/projectsData";
 import CertificationsSection from "./CertificationsSection";
 import LearningTimeline from "./LearningTimeline";
+import SEOHelper from '../common/SEOHelper';
+import PageTransition from '../common/PageTransition';
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState(SkillCategory.FRONTEND);
@@ -95,13 +97,14 @@ const SkillsSection = () => {
     };
   };
 
-  return (
-    <section id="skills" className="py-20 bg-primary relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-60 right-20 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 left-20 w-96 h-96 bg-accent-dark rounded-full blur-3xl"></div>
-      </div>
+return (
+    <>
+      <SEOHelper 
+        title="Skills | Natasha Hinga - Technical Expertise"
+        description="Full-stack development skills including React, Node.js, Python, Flutter, MongoDB, PostgreSQL, and more."
+      />
+      <PageTransition>
+      <section id="skills" className="py-20 bg-primary relative overflow-hidden">
 
       <div className="container-custom relative z-10">
         {/* Section Header */}
@@ -405,19 +408,26 @@ const SkillsSection = () => {
             animate="visible"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {filteredSkills.map((skill) => {
-              const proficiency = getProficiencyStyle(skill.level);
-              const isExpanded = expandedSkill === skill.id;
+            {filteredSkills.map((skill, index) => {
+  const proficiency = getProficiencyStyle(skill.level);
+  const isExpanded = expandedSkill === skill.id;
 
-              return (
-                <motion.div
-                  key={skill.id}
-                  variants={itemVariants}
-                  layout
-                  className="bg-secondary/50 backdrop-blur-sm rounded-xl overflow-hidden
-                           border border-border hover:border-accent/50 
-                           transition-all duration-300 group"
-                >
+  return (
+    <motion.div
+      key={skill.id}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ 
+        duration: 0.4,
+        delay: index * 0.05,
+      }}
+      whileHover={{ y: -5 }}
+      layout
+      className="bg-secondary/50 backdrop-blur-sm rounded-xl overflow-hidden
+               border border-border hover:border-accent/50 
+               transition-all duration-300 group"
+    >
                   {/* Main Card Content */}
                   <div className="p-6">
                     {/* Skill Header with Icon */}
@@ -644,6 +654,8 @@ const SkillsSection = () => {
         <LearningTimeline />
       </div>
     </section>
+      </PageTransition>
+    </>
   );
 };
 

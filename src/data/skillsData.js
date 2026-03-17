@@ -107,7 +107,7 @@ export const skillsData = {
       id: "javascript",
       name: "JavaScript",
       level: ProficiencyLevel.INTERMEDIATE,
-      years: 2,
+      years: 1.5,
       icon: "fa-brands fa-js",
       projects: ["baraka-bliss-react", "agri-match", "hackathon-projects"],
       description:
@@ -123,7 +123,7 @@ export const skillsData = {
       id: "html5",
       name: "HTML5",
       level: ProficiencyLevel.ADVANCED,
-      years: 2,
+      years: 1.5,
       icon: "fa-brands fa-html5",
       projects: ["all-web-projects"],
       description:
@@ -139,7 +139,7 @@ export const skillsData = {
       id: "css3",
       name: "CSS3",
       level: ProficiencyLevel.ADVANCED,
-      years: 2,
+      years: 1.5,
       icon: "fa-brands fa-css3-alt",
       projects: ["all-web-projects"],
       description:
@@ -226,44 +226,62 @@ export const skillsData = {
         "Created error handling patterns",
       ],
     },
+    // Add this to backend or languages section
+{
+  id: "django",
+  name: "Django",
+  level: ProficiencyLevel.INTERMEDIATE,
+  years: 1,
+  icon: "fa-brands fa-python", // or "fa-solid fa-server"
+  projects: ["agri-match", "django-projects"],
+  description: "Python web framework for building robust web applications quickly.",
+  keywords: ["MVT", "ORM", "admin", "authentication"],
+  highlights: [
+    "Built Agri-Match as eMobilis final project",
+    "Implemented user authentication and authorization",
+    "Designed database models with Django ORM",
+    "Created admin interface for content management",
+  ],
+}
   ],
 
   // ============================================
-  // 3. MOBILE SKILLS
-  // ============================================
-  mobile: [
-    {
-      id: "flutter",
-      name: "Flutter",
-      level: ProficiencyLevel.BEGINNER,
-      years: 1,
-      icon: "fa-solid fa-mobile",
-      projects: ["baraka-bliss-flutter", "plp-pwa-project"],
-      description:
-        "Building cross-platform mobile applications using Flutter and Dart",
-      keywords: ["widgets", "state management", "Firebase"],
-      highlights: [
-        "Started Baraka Bliss mobile app",
-        "Learning Flutter for cross-platform dev",
-        "Currently learning advanced patterns",
-      ],
-    },
-    {
-      id: "dart",
-      name: "Dart",
-      level: ProficiencyLevel.BEGINNER,
-      years: 1,
-      icon: "fa-solid fa-code",
-      projects: ["baraka-bliss-flutter"],
-      description: "Programming language used for Flutter mobile development",
-      keywords: ["OOP", "async", "collections"],
-      highlights: [
-        "Learning Dart with Flutter",
-        "Understanding language fundamentals",
-        "Building mobile UI components",
-      ],
-    },
-  ],
+// 3. MOBILE SKILLS
+// ============================================
+mobile: [
+  {
+    id: "flutter",
+    name: "Flutter",
+    level: ProficiencyLevel.INTERMEDIATE, // Changed from BEGINNER to INTERMEDIATE
+    years: 1,
+    icon: "fa-solid fa-mobile",
+    projects: ["baraka-bliss-flutter", "plp-pwa-project"],
+    description:
+      "Cross-platform mobile development with Flutter and Dart. Specialized in PWAs during PLP program.",
+    keywords: ["widgets", "state management", "Firebase", "PWA"],
+    highlights: [
+      "PLP specialization in Mobile Friendly PWAs with Flutter",
+      "Built Baraka Bliss mobile app as final project",
+      "Developed cross-platform applications",
+      "Currently learning advanced Flutter patterns",
+    ],
+  },
+  {
+    id: "dart",
+    name: "Dart",
+    level: ProficiencyLevel.INTERMEDIATE, // Changed from BEGINNER to INTERMEDIATE
+    years: 1,
+    icon: "fa-solid fa-code",
+    projects: ["baraka-bliss-flutter"],
+    description: "Programming language used for Flutter mobile development",
+    keywords: ["OOP", "async", "collections", "Flutter"],
+    highlights: [
+      "Used extensively in PLP program",
+      "Built complete Flutter applications",
+      "Strong understanding of Dart fundamentals",
+    ],
+  },
+],
 
   // ============================================
   // 4. PROGRAMMING LANGUAGES
@@ -273,9 +291,10 @@ export const skillsData = {
       id: "python",
       name: "Python",
       level: ProficiencyLevel.ADVANCED,
-      years: 2,
+      years: 1.5,
       icon: "fa-brands fa-python",
       projects: [
+        "agri-match",
         "django-projects",
         "assignments",
         "ai-assignments",
@@ -317,7 +336,7 @@ export const skillsData = {
     {
       id: "c",
       name: "C",
-      level: ProficiencyLevel.BEGINNER,
+      level: ProficiencyLevel.INTERMEDIATE,
       years: 1,
       icon: "fa-solid fa-microchip",
       projects: ["university-coursework"],
@@ -424,7 +443,7 @@ export const skillsData = {
     {
       id: "postgresql",
       name: "PostgreSQL",
-      level: ProficiencyLevel.BEGINNER,
+      level: ProficiencyLevel.INTERMEDIATE,
       years: 0.5,
       icon: "fa-solid fa-database",
       projects: ["neuratrack-backend"],
@@ -451,6 +470,22 @@ export const skillsData = {
         "Basic Firestore operations",
       ],
     },
+     {
+    id: "mysql",
+    name: "MySQL",
+    level: ProficiencyLevel.INTERMEDIATE,
+    years: 1,
+    icon: "fa-solid fa-database",
+    projects: ["agri-match", "django-projects"],
+    description: "Relational database management system used with Django for web applications.",
+    keywords: ["SQL", "queries", "relations", "Django ORM"],
+    highlights: [
+      "Used in Agri-Match eMobilis project",
+      "Database design and modeling",
+      "SQL query optimization",
+      "Integration with Django",
+    ],
+  },
   ],
 
   // ============================================
@@ -490,7 +525,7 @@ export const skillsData = {
     {
       id: "vercel",
       name: "Vercel",
-      level: ProficiencyLevel.BEGINNER,
+      level: ProficiencyLevel.INTERMEDIATE,
       years: 1,
       icon: "fa-solid fa-cloud",
       projects: ["baraka-bliss-frontend", "portfolio"],
@@ -505,7 +540,7 @@ export const skillsData = {
     {
       id: "render",
       name: "Render",
-      level: ProficiencyLevel.BEGINNER,
+      level: ProficiencyLevel.INTERMEDIATE,
       years: 1,
       icon: "fa-solid fa-server",
       projects: ["multiple-backends"],
@@ -591,44 +626,59 @@ export const skillsData = {
     },
   ],
 
-  // ============================================
-  // 9. CERTIFICATIONS
-  // ============================================
-  certifications: [
-    {
-      id: "plp-software-dev",
-      name: "Software Development Certificate",
-      issuer: "Power Learn Project",
-      date: "2025",
-      credentialId: "Available",
-      logo: "/certificates/plp-logo.png",
-      description:
-        "16-week program covering Python, Web Technologies, Database Management, Startup Building & Employability and Software Engineering Essentials, with specialization in Mobile Friendly PWAs with Dart and Flutter.",
-      skills: [
-        "Python",
-        "Django",
-        "Flutter",
-        "Dart",
-        "Database",
-        "Software Engineering",
-      ],
-      link: "#",
-      featured: true,
-    },
-    {
-      id: "emobilis-mobile",
-      name: "Mobile App Development Training",
-      issuer: "eMobilis Technology Training Institute",
-      date: "2024",
-      credentialId: "Pending",
-      logo: "/certificates/emobilis-logo.png",
-      description:
-        "Mobile app development training covering modern frameworks and best practices.",
-      skills: ["Mobile Development", "App Design"],
-      link: "#",
-      featured: false,
-    },
-  ],
+// ============================================
+// 9. CERTIFICATIONS
+// ============================================
+certifications: [
+  {
+    id: "plp-software-dev",
+    name: "Software Development Certificate",
+    issuer: "Power Learn Project (PLP)",
+    date: "July - November 2025",
+    credentialId: "Available",
+    logo: "/certificates/plp-logo.png",
+    certificateImage: "/certificates/plp-certificate.jpg",
+    description:
+      "16-week intensive program covering Software Development with specialization in Mobile Friendly PWAs with Dart and Flutter. The curriculum included Python programming, Web Technologies, Database Management, Startup Building & Employability, and Software Engineering Essentials. The specialization focused on building Progressive Web Apps using Flutter and Dart, with hands-on projects including AI/ML experimentation using Jupyter Notebooks and Kaggle.",
+    skills: [
+      "Python",
+      "Flutter",
+      "Dart",
+      "Progressive Web Apps",
+      "Jupyter Notebooks",
+      "Kaggle",
+      "AI/ML Fundamentals",
+      "Database Management",
+      "Software Engineering",
+    ],
+    link: "#",
+    featured: true,
+  },
+  {
+    id: "emobilis-fullstack",
+    name: "Full Stack Development Certificate",
+    issuer: "eMobilis Technology Training Institute",
+    date: "September - November 2024 (8 weeks)",
+    credentialId: "Pending",
+    logo: "/certificates/emobilis-logo.png",
+    certificateImage: null, 
+    description:
+      "8-week intensive Full Stack Development program covering frontend and backend technologies. The course included HTML5, CSS3, JavaScript for frontend development, and Python with Django for backend development, with MySQL for database management. The final project, Agri-Match, was a platform connecting farmers with machinery rentals and skilled operators, demonstrating full-stack capabilities including user authentication, database design, and responsive UI development.",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Python",
+      "Django",
+      "MySQL",
+      "Full Stack Development",
+      "Responsive Design",
+      "User Authentication",
+    ],
+    link: "#",
+    featured: true,
+  },
+],
 
   // ============================================
   // 10. FUN STATS

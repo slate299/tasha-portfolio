@@ -13,6 +13,8 @@ import {
 import { measureRenderTime } from "../../utils/performance";
 import { getStatusAriaLabel } from "../../utils/accessibility";
 import ScreenReaderAnnouncer from "../common/ScreenReaderAnnouncer";
+import SEOHelper from '../common/SEOHelper';
+import PageTransition from '../common/PageTransition';
 
 // IMPORT SKILLS DATA FOR PROJECT-SKILL INTEGRATION
 import skillsData, { projectSkillsMap } from "../../data/skillsData";
@@ -202,6 +204,12 @@ const ProjectsSection = () => {
   };
 
   return (
+        <>
+      <SEOHelper 
+        title="Projects | Natasha Hinga - Full-Stack Developer"
+        description="Explore my portfolio of web and mobile applications including Baraka Bliss Staycations, NeuraTrack API, Agri-Match, and hackathon projects."
+      />
+      <PageTransition >
     <section
       id="projects"
       className="py-20 bg-primary relative overflow-hidden"
@@ -510,16 +518,22 @@ const ProjectsSection = () => {
                       p.id === projectsData.featured.id
                     ),
                 )
-                .map((project) => (
+                .map((project, index) => (
                   <motion.div
-                    key={project.id}
-                    data-project-id={project.id}
-                    variants={itemVariants}
-                    onHoverStart={() => setHoveredProject(project.id)}
-                    onHoverEnd={() => setHoveredProject(null)}
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.2 }}
-                  >
+      key={project.id}
+      data-project-id={project.id}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: "easeOut"
+      }}
+      onHoverStart={() => setHoveredProject(project.id)}
+      onHoverEnd={() => setHoveredProject(null)}
+      whileHover={{ y: -5 }}
+    >
                     <ProjectCard
                       project={project}
                       isHovered={hoveredProject === project.id}
@@ -669,6 +683,8 @@ const ProjectsSection = () => {
         {announcement}
       </div>
     </section>
+    </PageTransition>
+</>
   );
 };
 

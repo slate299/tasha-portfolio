@@ -6,10 +6,12 @@ import {
   learningSkills,
   funStats,
 } from "../../data/skillsData";
+import ImageModal from '../common/ImageModal';
 
 const CertificationsSection = () => {
   const [expandedCert, setExpandedCert] = useState(null);
   const [showAllCerts, setShowAllCerts] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   // Display limited or all certifications
   const displayedCerts = showAllCerts
@@ -208,114 +210,160 @@ const CertificationsSection = () => {
                            transition-all duration-300 group"
                 >
                   {/* Certificate Card */}
-                  <div className="p-6">
-                    <div className="flex items-start gap-4">
-                      {/* Icon/Avatar */}
-                      <div
-                        className="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent-dark/20 
-                                   rounded-xl flex items-center justify-center flex-shrink-0
-                                   group-hover:from-accent/30 group-hover:to-accent-dark/30 
-                                   transition-all duration-300"
-                      >
-                        <i className="fa-solid fa-scroll text-3xl text-accent"></i>
-                      </div>
+<div className="p-6">
+  <div className="flex items-start gap-4">
+    {/* Logo/Avatar */}
+    <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent-dark/20 
+                  rounded-xl flex items-center justify-center flex-shrink-0
+                  group-hover:from-accent/30 group-hover:to-accent-dark/30 
+                  transition-all duration-300 relative overflow-hidden">
+      {cert.logo ? (
+        <img 
+          src={cert.logo} 
+          alt={`${cert.issuer} logo`}
+          className="w-full h-full object-contain p-2"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.style.display = 'none';
+            e.target.parentElement.innerHTML = '<i class="fa-solid fa-scroll text-3xl text-accent"></i>';
+          }}
+        />
+      ) : (
+        <i className="fa-solid fa-scroll text-3xl text-accent"></i>
+      )}
+    </div>
 
-                      {/* Content */}
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <h4
-                              className="text-xl font-display font-semibold text-text-primary 
-                                       group-hover:text-accent transition-colors mb-1"
-                            >
-                              {cert.name}
-                            </h4>
-                            <p className="text-text-secondary mb-2">
-                              {cert.issuer} • {cert.date}
-                            </p>
-                          </div>
+    {/* Content */}
+    <div className="flex-1">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h4 className="text-xl font-display font-semibold text-text-primary 
+                       group-hover:text-accent transition-colors mb-1">
+            {cert.name}
+          </h4>
+          <p className="text-text-secondary mb-2">
+            {cert.issuer} • {cert.date}
+          </p>
+        </div>
 
-                          {/* Expand/Collapse Button */}
-                          <button
-                            onClick={() =>
-                              setExpandedCert(
-                                expandedCert === cert.id ? null : cert.id,
-                              )
-                            }
-                            className="w-8 h-8 rounded-full bg-primary flex items-center justify-center
-                                     hover:bg-accent/20 transition-colors flex-shrink-0"
-                          >
-                            <i
-                              className={`fa-solid fa-chevron-down transition-transform 
-                                         ${expandedCert === cert.id ? "rotate-180" : ""} text-text-secondary`}
-                            ></i>
-                          </button>
-                        </div>
+        {/* Expand/Collapse Button */}
+        <button
+          onClick={() => setExpandedCert(expandedCert === cert.id ? null : cert.id)}
+          className="w-8 h-8 rounded-full bg-primary flex items-center justify-center
+                   hover:bg-accent/20 transition-colors flex-shrink-0"
+        >
+          <i className={`fa-solid fa-chevron-down transition-transform 
+                       ${expandedCert === cert.id ? "rotate-180" : ""} text-text-secondary`}></i>
+        </button>
+      </div>
 
-                        {/* Credential ID if available */}
-                        {cert.credentialId &&
-                          cert.credentialId !== "Pending" && (
-                            <div className="flex items-center gap-2 text-sm mb-3">
-                              <span className="text-text-secondary">
-                                Credential ID:
-                              </span>
-                              <code className="px-2 py-1 bg-primary rounded text-accent text-xs">
-                                {cert.credentialId}
-                              </code>
-                            </div>
-                          )}
+      {/* Credential ID if available */}
+      {cert.credentialId && cert.credentialId !== "Pending" && (
+        <div className="flex items-center gap-2 text-sm mb-3">
+          <span className="text-text-secondary">Credential ID:</span>
+          <code className="px-2 py-1 bg-primary rounded text-accent text-xs">
+            {cert.credentialId}
+          </code>
+        </div>
+      )}
 
-                        {/* Skills Tags */}
-                        <div className="flex flex-wrap gap-2">
-                          {cert.skills.map((skill, i) => (
-                            <span
-                              key={i}
-                              className="px-2 py-1 bg-primary rounded-full text-xs text-text-secondary
-                                       hover:bg-accent/10 hover:text-accent transition-colors cursor-default"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+      {/* Skills Tags */}
+      <div className="flex flex-wrap gap-2">
+        {cert.skills.map((skill) => (
+          <span
+            key={skill}
+            className="px-2 py-1 bg-primary rounded-full text-xs text-text-secondary
+                     hover:bg-accent/10 hover:text-accent transition-colors cursor-default"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
 
-                    {/* Expanded Content */}
-                    <AnimatePresence>
-                      {expandedCert === cert.id && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-4 pt-4 border-t border-border"
-                        >
-                          <p className="text-text-secondary text-sm leading-relaxed">
-                            {cert.description}
-                          </p>
-
-                          {cert.link && cert.link !== "#" && (
-                            <a
-                              href={cert.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 mt-4 text-accent hover:text-accent-dark 
-                                       transition-colors text-sm font-medium"
-                            >
-                              <i className="fa-solid fa-external-link-alt"></i>
-                              Verify Certificate
-                            </a>
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+  {/* Expanded Content with Certificate Image */}
+  <AnimatePresence>
+    {expandedCert === cert.id && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="mt-4 pt-4 border-t border-border"
+      >
+        {/* Certificate Image Thumbnail */}
+        {cert.certificateImage && (
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="mb-4"
+          >
+            <div className="relative group/image cursor-pointer" 
+                 onClick={() => setSelectedImage({
+  src: cert.certificateImage,
+  title: cert.name
+})}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent to-accent-dark 
+                            rounded-lg blur opacity-0 group-hover/image:opacity-50 
+                            transition-opacity duration-300"></div>
+              <div className="relative bg-primary rounded-lg overflow-hidden border border-accent/30">
+                <img 
+                  src={cert.certificateImage}
+                  alt={`${cert.name} certificate`}
+                  className="w-full max-h-48 object-contain bg-primary/50 p-2"
+                />
+                {/* Zoom icon overlay on hover */}
+                <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover/image:opacity-100 
+                              transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-accent text-primary rounded-full p-3">
+                    <i className="fa-solid fa-magnifying-glass-plus text-xl"></i>
                   </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-center text-text-secondary mt-2">
+              Click image to view full certificate
+            </p>
+          </motion.div>
+        )}
+
+        {/* Description */}
+        <p className="text-text-secondary text-sm leading-relaxed">
+          {cert.description}
+        </p>
+
+        {cert.link && cert.link !== "#" && (
+          <a
+            href={cert.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 text-accent hover:text-accent-dark 
+                     transition-colors text-sm font-medium"
+          >
+            <i className="fa-solid fa-external-link-alt"></i>
+            Verify Certificate
+          </a>
+        )}
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
                 </motion.div>
               ))}
             </div>
-          </div>
+             </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      <ImageModal 
+        isOpen={selectedImage !== null}
+        onClose={() => setSelectedImage(null)}
+        imageSrc={selectedImage?.src}
+        title={selectedImage?.title}
+      />
     </section>
   );
 };

@@ -187,7 +187,7 @@ What drives me is the opportunity to work on projects that have real impact - wh
   // Resume/CV
   resume: {
     available: true,
-    url: "/resume.pdf", // You'll add this file later
+    url: "/Natasha_Hinga_Resume.pdf", // You'll add this file later
     lastUpdated: "2026-03-15",
     formats: ["PDF"],
     downloadCount: 0, // Will track via analytics

@@ -6,14 +6,23 @@ import aboutData, {
   getInitials,
   getLocationWithFlag,
 } from "../../data/aboutData";
+import SEOHelper from '../common/SEOHelper';
+import PageTransition from '../common/PageTransition';
+import AnimatedCounter from '../common/AnimatedCounter';
 
 const AboutSection = () => {
   const [expandedBio, setExpandedBio] = useState(false);
   const [activeTab, setActiveTab] = useState("bio"); // 'bio', 'journey', 'interests'
 
   return (
-    <section id="about" className="py-20 bg-primary relative overflow-hidden">
-      {/* Background decoration */}
+    <>
+      <SEOHelper 
+        title="About | Natasha Hinga - Full-Stack Developer"
+        description="Learn more about Natasha Hinga, a Mathematics & Computer Science student at JKUAT building innovative web and mobile solutions."
+      />
+      <PageTransition>
+      <section id="about" className="py-20 bg-primary relative overflow-hidden">
+        {/* Background decoration */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-40 right-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 left-20 w-96 h-96 bg-accent-dark/5 rounded-full blur-3xl"></div>
@@ -128,29 +137,35 @@ const AboutSection = () => {
 
               {/* Quick Stats with animated counters */}
               <div className="grid grid-cols-3 gap-2 mb-6">
-                {[
-                  { value: "5+", label: "Projects" },
-                  { value: "5", label: "Hackathons" },
-                  { value: "1.5", label: "Years" },
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="bg-primary/50 rounded-lg p-3 text-center cursor-default"
-                  >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ delay: index * 0.1, type: "spring" }}
-                      className="text-xl font-bold text-accent"
-                    >
-                      {stat.value}
-                    </motion.div>
-                    <div className="text-xs text-text-secondary">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
+               {[
+  { value: "5+", label: "Projects" },
+  { value: "5", label: "Hackathons" },
+  { value: "1.5", label: "Years" },
+].map((stat, index) => (
+  <motion.div
+    key={index}
+    whileHover={{ scale: 1.05, y: -2 }}
+    className="bg-primary/50 rounded-lg p-3 text-center cursor-default"
+  >
+    <motion.div
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      transition={{ delay: index * 0.1, type: "spring" }}
+      className="text-xl font-bold text-accent"
+    >
+      {stat.value.includes('+') ? (
+        <>
+          <AnimatedCounter value={stat.value.replace('+', '')} />+
+        </>
+      ) : (
+        <AnimatedCounter value={stat.value} />
+      )}
+    </motion.div>
+    <div className="text-xs text-text-secondary">
+      {stat.label}
+    </div>
+  </motion.div>
+))}
               </div>
 
               {/* Resume Button */}
@@ -305,7 +320,7 @@ const AboutSection = () => {
                     <div className="flex flex-wrap gap-4">
                       {aboutData.personal.languages.map((lang, index) => (
                         <motion.div
-                          key={index}
+                          key={lang.name}
                           whileHover={{ scale: 1.05 }}
                           className="flex items-center gap-2 bg-primary/30 px-3 py-2 rounded-lg"
                         >
@@ -397,7 +412,7 @@ const AboutSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {aboutData.personal.hobbies.map((hobby, index) => (
                         <motion.div
-                          key={index}
+                          key={hobby.name}
                           whileHover={{ scale: 1.02, y: -2 }}
                           className="bg-primary/30 rounded-lg p-4 flex items-start gap-3 group cursor-default"
                         >
@@ -454,6 +469,8 @@ const AboutSection = () => {
         </div>
       </div>
     </section>
+    </PageTransition>
+    </>
   );
 };
 

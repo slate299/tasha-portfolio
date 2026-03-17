@@ -74,11 +74,12 @@ html {
   }
 }
 
+/* FIXED: Replaced var(--color-accent/10) with rgba() */
 .shimmer {
   background: linear-gradient(
     90deg,
     var(--color-secondary) 0%,
-    var(--color-accent/10) 50%,
+    rgba(199, 125, 255, 0.1) 50%,  /* ← FIXED: Using rgba with your purple color */
     var(--color-secondary) 100%
   );
   background-size: 1000px 100%;
